@@ -4,31 +4,31 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define DEFAULT 0
+#define ERGOL   0
 #define NAV     1
 #define SYM     2
-#define FUNC    3
-#define MEDIA   4
-#define NUMLFT  5
-#define NUMRHT  6
-
-&caps_word {
-    continue-list = <UNDERSCORE MINUS>;
-};
+#define SPEC1   3
+#define SPEC2   4
 
 / {
-    combos {
-        compatible = "zmk,combos";
-        combo_undo {
-            timeout-ms = <50>;
-            key-positions = <20 21>;
-            bindings = <&kp LC(Z)>;
+    macros {
+        sp: sp {
+            compatible = "zmk,behavior-macro-two-param";
+            #binding-cells = <2>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_param_1to1>
+                , <&macro_tap &kp MACRO_PLACEHOLDER>
+                , <&macro_release &kp LALT>
+                , <&macro_tap &kp LALT>
+                , <&macro_param_2to1>
+                , <&macro_tap &kp MACRO_PLACEHOLDER>
+                ;
         };
     };
 };
 
 / {
-
     behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -51,64 +51,46 @@
 
         default_layer {
             bindings = <
-    &kp Q        &kp W        &kp F       &kp P         &lt NUMLFT B                                &lt NUMRHT J  &kp L        &kp U         &kp Y       &kp SEMI
-    &hm LCTL A   &hm LGUI R   &hm LALT S  &hs LSHIFT T  &kp G                                       &kp M         &hs RSHIFT N &hm RALT E    &hm RGUI I  &hm RCTL O
-    &kp Z        &kp X        &kp C       &kp D         &kp V                                       &kp K         &kp H        &kp COMMA     &kp DOT     &kp FSLH
-                                          &kp DEL       &lt NAV RET  &lt FUNC TAB  &lt MEDIA BSPC   &lt SYM SPACE &kp SQT
+    &kp Q        &kp C        &kp O       &kp P         &kp W                                       &kp J       &kp M      &kp D      &sl SPEC1  &kp Y
+    &hs LSHFT A  &hm LGUI S   &hm LALT E  &hm LCTL N    &kp F                                       &kp L       &hm RCTL R &hm RALT T &hm RGUI I &hs RSHFT U
+    &kp Z        &kp X        &kp MINUS   &kp V         &kp B                                       &kp DOT     &kp H      &kp G      &kp COMMA  &kp K
+                                          &kp LGUI      &hs RSHFT BSPC &lt NAV SPACE &lt NAV SPACE  &lt SYM RET &kp RGUI
             >;
         };
 
         nav_layer {
             bindings = <
-    &kp ESC      &kp PG_UP    &kp UP      &kp PG_DN     &trans                                      &kp ASTRK     &kp N7       &kp N8        &kp N9      &kp MINUS
-    &kp HOME     &kp LEFT     &kp DOWN    &kp RIGHT     &kp END                                     &kp FSLH      &kp N4       &kp N5        &kp N6      &kp PLUS
-    &trans       &trans       &trans      &trans        &trans                                      &kp EQUAL     &kp N1       &kp N2        &kp N3      &kp N0
-                                          &trans        &trans       &kp TAB       &kp BSPC         &kp SPACE     &kp DOT
+    &kp TAB      &kp HOME     &kp UP      &kp END       &kp PG_UP                                   &kp MINUS     &kp N7       &kp N8        &kp N9      &trans
+    &kp CAPS     &kp LEFT     &kp DOWN    &kp RIGHT     &kp PG_DN                                   &kp COLON     &kp N4       &kp N5        &kp N6      &kp N0
+    &trans       &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP  &kp TAB                                     &trans        &kp N1       &kp N2        &kp N3      &trans
+                                          &trans        &trans          &trans        &trans        &trans        &trans
             >;
         };
 
         sym_layer {
             bindings = <
-    &kp EXCL     &kp AT       &kp HASH        &kp DLLR         &kp PRCNT                                   &kp CARET     &kp AMPS          &kp ASTRK     &kp UNDER   &kp EQUAL
-    &kp MINUS    &kp LBKT     &kp LBRC        &kp LPAR         &kp LT                                      &kp GT        &kp RPAR          &kp RBRC      &kp RBKT    &kp PLUS
-    &kp CAPS     &kp GRAVE    &kp LC(LS(TAB)) &kp LC(LG(LEFT)) &caps_word                                  &trans        &kp LC(LG(RIGHT)) &kp LC(TAB)   &trans      &kp BSLH
-                                              &trans           &kp RET       &kp DEL        &kp BSPC       &trans        &trans
+    &kp CARET    &kp LT       &kp GT      &kp DLLR      &kp PRCNT                                   &kp AT        &kp AMPS     &kp ASTRK     &kp SQT     &kp GRAVE
+    &kp LBRC     &kp LPAR     &kp RPAR    &kp RBRC      &kp EQUAL                                   &kp BSLH      &kp PLUS     &kp MINUS     &kp FSLH    &kp DQT
+    &kp TILDE    &kp LBKT     &kp RBKT    &kp UNDER     &kp HASH                                    &kp PIPE      &kp EXCL     &kp SEMI      &kp COLON   &kp QMARK
+                                          &trans        &trans          &trans        &trans        &trans        &trans
             >;
         };
 
-        func_layer {
+        spec1_layer {
             bindings = <
-    &bootloader  &kp LS(PG_UP) &kp LS(UP)   &kp LS(PG_DN) &trans                                         &kp C_MUTE       &kp F7       &kp F8        &kp F9      &kp F10
-    &kp LS(HOME) &kp LS(LEFT)  &kp LS(DOWN) &kp LS(RIGHT) &kp LS(END)                                    &kp K_VOL_UP     &kp F4       &kp F5        &kp F6      &kp F11
-    &bt BT_SEL 3 &bt BT_SEL 2  &bt BT_SEL 1 &bt BT_SEL 0  &bt BT_CLR                                     &kp K_VOL_DN     &kp F1       &kp F2        &kp F3      &kp F12
-                                            &out OUT_USB  &out OUT_BLE     &trans      &kp C_PLAY_PAUSE  &trans           &kp SPACE
+    &sp N6 A     &sp C C      &trans      &sp N6 O     &trans                                       &trans        &kp F7       &kp UNDER     &sl SPEC2   &sp N6 U
+    &sp GRAVE A  &sp E E      &sp GRAVE E &sp N6 E     &sp TILDE N                                  &kp LPAR      &kp RPAR     &sp N6 I      &sp U I     &sp GRAVE U
+    &kp A        &sp E S      &trans      &trans       &trans                                       &trans        &trans       &trans        &trans      &trans
+                                          &trans       &trans           &trans        &trans        &trans        &trans
             >;
         };
 
-        media_layer {
+        spec2_layer {
             bindings = <
-    &trans       &trans       &trans        &trans            &trans                                      &trans             &bt BT_PRV        &bt BT_NXT         &trans         &trans
-    &trans       &trans       &trans        &trans            &trans                                      &bt BT_CLR         &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2   &bt BT_SEL 3
-    &trans       &trans       &trans        &trans            &trans                                      &ext_power EP_TOG  &ext_power EP_ON  &ext_power EP_OFF  &out OUT_USB   &out OUT_BLE
-                                            &trans            &trans        &trans         &trans         &out OUT_BLE       &out OUT_USB
-            >;
-        };
-
-        numlft_layer {
-            bindings = <
-    &kp N7       &kp N8       &kp N9    &kp MINUS   &trans                                           &trans      &trans      &trans      &trans      &trans
-    &kp N4       &kp N5       &kp N6    &kp PLUS    &trans                                           &trans      &trans      &trans      &trans      &trans
-    &kp N1       &kp N2       &kp N3    &kp N0      &trans                                           &trans      &trans      &trans      &trans      &trans
-                                        &trans      &trans          &trans           &trans          &trans      &trans
-            >;
-        };
-
-        numrht_layer {
-            bindings = <
-    &trans       &trans       &trans       &trans        &trans                                      &trans      &kp N7       &kp N8        &kp N9      &kp MINUS
-    &trans       &trans       &trans       &trans        &trans                                      &trans      &kp N4       &kp N5        &kp N6      &kp PLUS
-    &trans       &trans       &trans       &trans        &trans                                      &trans      &kp N1       &kp N2        &kp N3      &kp N0
-                                           &trans        &trans        &trans         &trans         &trans      &trans
+    &trans       &trans       &sp U O     &trans      &sp U W                                       &trans        &trans       &trans        &trans      &sp U Y
+    &sp U A      &trans       &sp U E     &trans      &trans                                        &trans        &trans       &sp U T       &sp U I     &sp U U
+    &trans       &sp U X      &trans      &trans      &trans                                        &trans        &sp U H      &trans        &trans      &trans
+                                          &trans      &trans            &trans        &trans        &trans        &trans
             >;
         };
     };

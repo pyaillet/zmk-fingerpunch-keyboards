@@ -6,7 +6,7 @@
 
 #define ERGOL   0
 #define NAV     1
-#define ALT     2
+#define SYM     2
 #define SPEC1   3
 #define SPEC2   4
 
@@ -69,8 +69,7 @@
             >;
         };
 
-/*
-        alt_layer {
+        sym_layer {
             bindings = <
     &kp CARRET   &kp LT       &kp GT      &kp DLLR      &kp PRCNT                                   &kp AT        &kp AMPS     &kp ASTRK     &kp SQT     &kp GRAVE
     &kp LBRC     &kp LPAR     &kp RPAR    &kp RBRC      &kp EQUAL                                   &kp BSLH      &kp PLUS     &kp MINUS     &kp SLSH    &kp DQT
@@ -79,6 +78,7 @@
             >;
         };
 
+/*
         spec1_layer {
             bindings = <
     &spt N6 A    &spt C C     &trans       &spt N6 O    &trans                                      &trans        &kp F7       &kp UNDER   &sl SPEC2   &spt N6 U

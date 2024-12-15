@@ -56,7 +56,7 @@
     &kp Q        &kp C        &kp O       &kp P         &kp W                                       &kp J       &kp M      &kp D      &kp ASTRK  &kp Y
     &kp A        &kp S        &kp E       &kp N         &kp F                                       &kp L       &kp R      &kp T      &kp I      &kp U
     &kp Z        &kp X        &kp MINUS   &kp V         &kp B                                       &kp DOT     &kp H      &kp G      &kp COMMA  &kp K
-                                          &kp LGUI      &kp BSPC &lt NAV SPACE &lt NAV SPACE &kp RET &kp RGUI
+                                          &kp LGUI      &kp BSPC &lt NAV SPACE &lt NAV SPACE &lt SYM RET &kp RGUI
             >;
         };
 

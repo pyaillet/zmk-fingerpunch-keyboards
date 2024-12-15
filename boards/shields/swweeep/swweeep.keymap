@@ -56,11 +56,10 @@
     &kp Q        &kp C        &kp O       &kp P         &kp W                                       &kp J       &kp M      &kp D      &kp ASTRK  &kp Y
     &kp A        &kp S        &kp E       &kp N         &kp F                                       &kp L       &kp R      &kp T      &kp I      &kp U
     &kp Z        &kp X        &kp MINUS   &kp V         &kp B                                       &kp DOT     &kp H      &kp G      &kp COMMA  &kp K
-                                          &kp LGUI      &kp BSPC &kp SPACE &kp SPACE &kp RET &kp RGUI
+                                          &kp LGUI      &kp BSPC &lt NAV SPACE &lt NAV SPACE &kp RET &kp RGUI
             >;
         };
 
-/*
         nav_layer {
             bindings = <
     &kp TAB      &kp HOME     &kp UP      &kp END       &kp PG_UP                                   &kp MINUS     &kp N7       &kp N8        &kp N9      &trans
@@ -70,6 +69,7 @@
             >;
         };
 
+/*
         alt_layer {
             bindings = <
     &kp CARRET   &kp LT       &kp GT      &kp DLLR      &kp PRCNT                                   &kp AT        &kp AMPS     &kp ASTRK     &kp SQT     &kp GRAVE

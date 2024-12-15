@@ -23,7 +23,7 @@
 
 / {
     macros {
-	spt: spt {
+        spt: spt {
             compatible = "zmk,behavior-macro";
             #binding-cells = <2>;
             bindings
@@ -31,11 +31,11 @@
                 , <&macro_param_1to1>
                 , <&macro_tap &kp MACRO_PLACEHOLDER>
                 , <&macro_release &kp LALT>
-		              , <&macro_tap &kp LALT>
+                , <&macro_tap &kp LALT>
                 , <&macro_param_2to1>
                 , <&macro_tap &kp MACRO_PLACEHOLDER>
                 ;
-	};
+        };
     };
 };
 

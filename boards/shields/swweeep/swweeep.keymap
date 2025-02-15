@@ -82,10 +82,10 @@
 
         fun_layer {
             bindings = <
-    &trans     &trans       &trans    &trans     &trans                                   &trans      &trans     &trans     &trans   &trans
-    &trans     &trans       &trans    &trans     &trans                                   &trans      &trans     &trans     &trans   &trans
-    &trans     &trans       &trans    &trans     &trans                                   &trans      &trans     &trans     &trans   &trans
-                                          &trans        &trans          &trans        &trans          &trans     &trans
+    &kp C_BRI_UP &trans       &trans    &trans     &trans                                   &trans      &trans     &trans     &trans   &kp C_BRI_UP
+    &kp C_BRI_DN &trans       &trans    &trans     &trans                                   &trans      &trans     &trans     &trans   &kp C_BRI_DN
+    &trans       &trans       &trans    &trans     &trans                                   &trans      &trans     &trans     &trans   &trans
+                                        &trans     &trans        &transs      &trans        &trans      &trans
             >;
         };
 

@@ -58,7 +58,7 @@
     &kp Q        &kp C        &kp O       &kp P         &kp W                                       &kp J       &kp M      &kp D      &sl SPEC1  &kp Y
     &hs LSHFT A  &hm LGUI S   &hm LALT E  &hm LCTL N    &kp F                                       &kp L       &hm RCTL R &hm RALT T &hm RGUI I &hs RSHFT U
     &kp Z        &kp X        &kp MINUS   &kp V         &kp B                                       &kp DOT     &kp H      &kp G      &kp COMMA  &kp K
-                                          &kp LGUI      &hs RSHFT BSPC &lt NAV SPACE &lt NAV SPACE  &lt SYM RET &kp RGUI
+                                          &lt FUN LGUI  &hs RSHFT BSPC &lt NAV SPACE &lt NAV SPACE  &lt SYM RET &lt FUN RGUI
             >;
         };
 

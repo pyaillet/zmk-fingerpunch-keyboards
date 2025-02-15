@@ -21,3 +21,4 @@ Note that this ZMK module also leverages [zmk-fingerpunch-controllers](https://g
 If you're looking to use a non-fingerpunch board with a fingerpunch controller, see the [zmk-fingerpunch-controllers](https://github.com/sadekbaroudi/zmk-fingerpunch-controllers) ZMK module.
 
 If you have implemented VIK on a keyboard or module, you can look at the [zmk-fingerpunch-vik](https://github.com/sadekbaroudi/zmk-fingerpunch-vik) ZMK module.
+

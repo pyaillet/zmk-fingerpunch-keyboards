@@ -82,9 +82,9 @@
 
         fun_layer {
             bindings = <
-    &kp C_BRI_UP &mkp MB1       &mmv MOVE_UP   &mkp MB2        &bt BT_NXT                 &bt BT_NXT  &mkp MB1   &trans     &mkp MB2 &kp C_BRI_UP
-    &kp C_BRI_DN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &bt BT_PRV                 &bt BT_PRV  &trans     &trans     &trans   &kp C_BRI_DN
-    &trans       &trans         &trans         &trans          &trans                     &trans      &trans     &trans     &trans   &trans
+    &kp C_BRI_UP &mkp MB1       &mmv MOVE_UP   &mkp MB2        &bt BT_NXT                 &bt BT_NXT  &mkp MB1       &mmv MOVE_UP   &mkp MB2          &kp C_BRI_UP
+    &kp C_BRI_DN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &bt BT_PRV                 &bt BT_PRV  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT   &kp C_BRI_DN
+    &trans       &trans         &trans         &trans          &trans                     &trans      &trans         &trans         &trans            &trans
                                                &trans          &trans      &trans &trans  &trans      &trans
             >;
         };

@@ -1,14 +1,17 @@
+#include <dt-bindings/zmk/pointing.h>
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <input/processors.dtsi>
 
 #define ERGOL   0
 #define NAV     1
 #define SYM     2
 #define SPEC1   3
 #define SPEC2   4
+#define SPEC3	5
 
 / {
     macros {
@@ -51,10 +54,10 @@
 
         default_layer {
             bindings = <
-    &kp Q        &kp C        &kp O       &kp P         &kp W                                       &kp J       &kp M      &kp D      &sl SPEC1  &kp Y
-    &hs LSHFT A  &hm LGUI S   &hm LALT E  &hm LCTL N    &kp F                                       &kp L       &hm RCTL R &hm RALT T &hm RGUI I &hs RSHFT U
-    &kp Z        &kp X        &kp MINUS   &kp V         &kp B                                       &kp DOT     &kp H      &kp G      &kp COMMA  &kp K
-                                          &kp LGUI      &hs RSHFT BSPC &lt NAV SPACE &lt NAV SPACE  &lt SYM RET &kp RGUI
+    &kp Q        &kp C        &kp O       &kp P          &kp W                                       &kp J       &kp M      &kp D      &sl SPEC1  &kp Y
+    &hs LSHFT A  &hm LGUI S   &hm LALT E  &hm LCTL N     &kp F                                       &kp L       &hm RCTL R &hm RALT T &hm RGUI I &hs RSHFT U
+    &kp Z        &kp X        &kp MINUS   &kp V          &kp B                                       &kp DOT     &kp H      &kp G      &kp COMMA  &kp K
+                                          &lt SPEC3 LGUI &hs RSHFT BSPC &lt NAV SPACE &lt NAV SPACE  &lt SYM RET &lt SPEC3 RGUI
             >;
         };
 
@@ -91,6 +94,15 @@
     &sp U A      &trans       &sp U E     &trans      &trans                                        &trans        &trans       &sp U T       &sp U I     &sp U U
     &trans       &sp U X      &trans      &trans      &trans                                        &trans        &sp U H      &trans        &trans      &trans
                                           &trans      &trans            &trans        &trans        &trans        &trans
+            >;
+        };
+
+        mouse_layer {
+            bindings = <
+    &kp BRI_UP &trans       &trans   &trans    &trans                     &trans     &trans       &trans   &trans        &kp BRI_UP
+    &kp BRI_DN &trans       &trans   &trans    &trans                     &trans     &trans       &trans   &trans        &kp BRI_DN
+    &trans     &trans       &trans   &trans    &trans                     &trans     &trans       &trans   &trans        &trans
+                                     &trans    &trans     &trans  &trans  &trans     &trans
             >;
         };
     };
